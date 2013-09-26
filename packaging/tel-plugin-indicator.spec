@@ -3,7 +3,7 @@ Summary:    Telephony Indicator plugin
 Version:    0.1.8
 Release:    2
 Group:      System/Libraries
-License:    Apache
+License:    Apache-2.0
 Source0:    tel-plugin-indicator-%{version}.tar.gz
 Requires(post): /sbin/ldconfig
 Requires(postun): /sbin/ldconfig
@@ -30,9 +30,10 @@ make %{?jobs:-j%jobs}
 %install
 %make_install
 mkdir -p %{buildroot}/usr/share/license
+cp LICENSE %{buildroot}/usr/share/license/%{name}
 
 %files
 %manifest tel-plugin-indicator.manifest
 %defattr(-,root,root,-)
 %{_libdir}/telephony/plugins/indicator-plugin*
-/usr/share/license/tel-plugin-indicator
+/usr/share/license/%{name}
